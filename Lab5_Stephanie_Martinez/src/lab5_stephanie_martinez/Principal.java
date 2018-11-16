@@ -48,6 +48,17 @@ public class Principal extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        crear_empleados = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        nombre_empleado = new javax.swing.JTextField();
+        fecha_empleado = new com.toedter.calendar.JDateChooser();
+        correo_empleado = new javax.swing.JTextField();
+        cargo_empleado = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -160,9 +171,9 @@ public class Principal extends javax.swing.JFrame {
 
         datos_empresas.setTitle("Datos");
 
-        nombre_empresa_datos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nombre_empresa_datos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        id_empresa_datos.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        id_empresa_datos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         lista.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(lista);
@@ -176,6 +187,11 @@ public class Principal extends javax.swing.JFrame {
         jButton4.setText("Logout");
 
         jButton5.setText("Crear Empleado");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout datos_empresasLayout = new javax.swing.GroupLayout(datos_empresas.getContentPane());
         datos_empresas.getContentPane().setLayout(datos_empresasLayout);
@@ -217,12 +233,94 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        crear_empleados.setTitle("Datos del empleado");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("Datos");
+
+        jLabel13.setText("Nombre Completo");
+
+        jLabel14.setText("Fecha de nacimiento");
+
+        jLabel15.setText("Correo electrónico");
+
+        jLabel16.setText("Cargo");
+
+        cargo_empleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniero", "Medico", "Estudiante", "Licenciado", "Maestro" }));
+
+        jButton6.setText("Aceptar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout crear_empleadosLayout = new javax.swing.GroupLayout(crear_empleados.getContentPane());
+        crear_empleados.getContentPane().setLayout(crear_empleadosLayout);
+        crear_empleadosLayout.setHorizontalGroup(
+            crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crear_empleadosLayout.createSequentialGroup()
+                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(crear_empleadosLayout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel12))
+                    .addGroup(crear_empleadosLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, crear_empleadosLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(correo_empleado))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, crear_empleadosLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(34, 34, 34)
+                                .addComponent(cargo_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, crear_empleadosLayout.createSequentialGroup()
+                                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nombre_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fecha_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crear_empleadosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(150, 150, 150))
+        );
+        crear_empleadosLayout.setVerticalGroup(
+            crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(crear_empleadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(nombre_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(fecha_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(correo_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(crear_empleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(cargo_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -298,11 +396,11 @@ public class Principal extends javax.swing.JFrame {
         crear_empresa.setModal(true);
         crear_empresa.setLocationRelativeTo(this);
         crear_empresa.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        DefaultListModel modelo = (DefaultListModel) lista.getModel();
+        //DefaultListModel modelo = (DefaultListModel) lista.getModel();
         String tipo = (String) tipo_empresa.getSelectedItem();
         if (tipo.equalsIgnoreCase("micro")) {
             capital = 80000;
@@ -313,12 +411,13 @@ public class Principal extends javax.swing.JFrame {
         if (tipo.equalsIgnoreCase("gran")) {
             capital = 169000;
         }
-        modelo.addElement(new Empresa(nombre_empresa.getText(), capital, fecha_empresa.getDate(), ubicacion_empresa.getText(), (int) id_empresa.getValue(), pin_empresa.getText()));
-        lista.setModel(modelo);
+        //modelo.addElement(new Empresa(nombre_empresa.getText(), capital, fecha_empresa.getDate(), ubicacion_empresa.getText(), (int) id_empresa.getValue(), pin_empresa.getText()));
+        //lista.setModel(modelo);
         String nombre = nombre_empresa.getText();
         int id = (int) id_empresa.getValue();
         nombre_empresa.setText("");
         fecha_empresa.setDate(new Date());
+        tipo_empresa.setSelectedIndex(0);
         ubicacion_empresa.setText("");
         id_empresa.setValue(0);
         pin_empresa.setText("");
@@ -335,9 +434,46 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseEntered
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        crear_empleados.pack();
+        crear_empleados.setModal(true);
+        crear_empleados.setLocationRelativeTo(this);
+        crear_empleados.setVisible(true);
+        //datos_empresas.setVisible(false);
+        DefaultListModel modelo = (DefaultListModel) lista.getModel();
+        String tipo = (String) cargo_empleado.getSelectedItem();
+        if (tipo.equalsIgnoreCase("ingeniero")) {
+            salario = 22000;
+        }
+        if (tipo.equalsIgnoreCase("Medico")) {
+            salario = 18000;
+        }
+        if (tipo.equalsIgnoreCase("Estudiante")) {
+            salario = 7600;
+        }
+        if (tipo.equalsIgnoreCase("Licenciado")) {
+            salario = 12000;
+        }
+        if (tipo.equalsIgnoreCase("Maestro")) {
+            salario = 2000;
+        }
+        modelo.addElement(new Empleado(nombre_empleado.getText(), fecha_empleado.getDate(), correo_empleado.getText(), (String) cargo_empleado.getSelectedItem(), salario));
+        lista.setModel(modelo);
+        nombre_empleado.setText("");
+        fecha_empleado.setDate(new Date());
+        correo_empleado.setText("");
+        cargo_empleado.setSelectedIndex(0);
+
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        datos_empresas.pack();
+        datos_empresas.setModal(true);
+        datos_empresas.setLocationRelativeTo(this);
+        datos_empresas.setVisible(true);
+        crear_empleados.setVisible(false);
+    }//GEN-LAST:event_jButton6MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -371,8 +507,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cargo_empleado;
+    private javax.swing.JTextField correo_empleado;
+    private javax.swing.JDialog crear_empleados;
     private javax.swing.JDialog crear_empresa;
     private javax.swing.JDialog datos_empresas;
+    private com.toedter.calendar.JDateChooser fecha_empleado;
     private com.toedter.calendar.JDateChooser fecha_empresa;
     private javax.swing.JTextField id;
     private javax.swing.JSpinner id_empresa;
@@ -382,9 +522,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -398,6 +544,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTree jTree1;
     private javax.swing.JList<String> lista;
+    private javax.swing.JTextField nombre_empleado;
     private javax.swing.JTextField nombre_empresa;
     private javax.swing.JTextField nombre_empresa_datos;
     private javax.swing.JPasswordField pin;
@@ -406,4 +553,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextArea ubicacion_empresa;
     // End of variables declaration//GEN-END:variables
 double capital;
+    int salario;
+
 }

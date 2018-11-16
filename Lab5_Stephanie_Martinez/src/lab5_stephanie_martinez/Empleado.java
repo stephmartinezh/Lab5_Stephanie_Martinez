@@ -1,10 +1,9 @@
-
 package lab5_stephanie_martinez;
 
 import java.util.Date;
 
-
 public class Empleado {
+
     String nombre;
     Date fecha;
     String correo;
@@ -64,7 +63,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "nombre=" + nombre + ", fecha=" + fecha + ", correo=" + correo + ", cargo=" + cargo + ", salario=" + salario + '}';
+        return nombre;
     }
-    
+
 }
