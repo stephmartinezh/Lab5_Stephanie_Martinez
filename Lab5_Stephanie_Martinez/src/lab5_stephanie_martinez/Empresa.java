@@ -73,7 +73,7 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return "Empresa{" + "nombre=" + nombre + ", capital=" + capital + ", fecha=" + fecha + ", ubicacion=" + ubicacion + ", id=" + id + ", pin= " + pin + '}';
+        return nombre;
     }
 
 }
